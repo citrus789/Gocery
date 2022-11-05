@@ -7,27 +7,48 @@
     justify-content: space-between;
     align-items: center;
 }
-.logo {
-    width: 30px;
-}
+
 .search {
     width: 100%;
-    
+    z-index: 1101;
+    margin-right: 10px;
 }
 .search:hover {
     cursor: auto;
 }
-.profile {
-    width: 50px;
-    height: 45px;
+.profile, .logo {
+    min-width: 50px;
+    min-height: 50px;
     border-radius: 25px;
-    margin: 25px;
+    margin: 25px 15px;
     background-color: lightgray;
     display: flex;
     align-items: center;
     justify-content: center;
     
 }
-.profile:hover {
+.profile:hover, .logo:hover {
     cursor: pointer;
+}
+.main-search {
+    width: 100px;
+    height: 38px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    background-color: red;
+    color: white;
+    opacity: 0.8;
+    transition: 0.15s;
+}
+.main-search:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+.search-wrapper {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
 }
