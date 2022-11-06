@@ -46,55 +46,76 @@ allSuperMarkets = [Loblaws, NoFrills, TandT, Longos]
 oranges = [ 
 	{ #Loblaws
 		'name':'Oranges',
-		'pricePound':'2.49'
+		'pricePound':'2.49',
+		'image':"https://upload.wikimedia.org/wikipedia/commons/1/1f/Local_Orange_Variety_of_Kozan_-_Kozan_Yerli_Portakal_04.jpg"
 	},
 	{	# Nofrills
 		'name':'Oranges',
-		'pricePound':'1.99'
+		'pricePound':'1.99',
+		'image':"https://upload.wikimedia.org/wikipedia/commons/1/1f/Local_Orange_Variety_of_Kozan_-_Kozan_Yerli_Portakal_04.jpg"
+
 	},
 	{	#T&T
 		'name':'Oranges',
-		'pricePound':'1.27'
+		'pricePound':'1.27',
+		'image':"https://upload.wikimedia.org/wikipedia/commons/1/1f/Local_Orange_Variety_of_Kozan_-_Kozan_Yerli_Portakal_04.jpg"
+
 	},
 	{	#Longos
 		'name':'Oranges',
-		'pricePound':'1.49'
+		'pricePound':'1.49',
+		'image':"https://upload.wikimedia.org/wikipedia/commons/1/1f/Local_Orange_Variety_of_Kozan_-_Kozan_Yerli_Portakal_04.jpg"
+
 	}
 ]
 apples = [
 	{ #Loblaws
 		'name':'Apples',
-		'pricePound':'2.99'
+		'pricePound':'2.99',
+		'image': "https://upload.wikimedia.org/wikipedia/commons/3/34/Apples_with_black_background.jpg"
 	},
 	{	# Nofrills
 		'name':'Apples',
-		'pricePound':'1.99'
+		'pricePound':'1.99',
+		'image': "https://upload.wikimedia.org/wikipedia/commons/3/34/Apples_with_black_background.jpg"
+
 	},
 	{	#T&T
 		'name':'Apples',
-		'pricePound':'1.50'
+		'pricePound':'1.50',
+		'image': "https://upload.wikimedia.org/wikipedia/commons/3/34/Apples_with_black_background.jpg"
+
 	},
 	{	#Longos
 		'name':'Apples',
-		'pricePound':'1.59'
+		'pricePound':'1.59',
+		'image': "https://upload.wikimedia.org/wikipedia/commons/3/34/Apples_with_black_background.jpg"
+
 	}
 ]
 avacado = [ # price is per avacado
 	{ #Loblaws
 		'name':'Avacado',
-		'pricePound':'2.49'
+		'pricePound':'2.49',
+		'image': "https://upload.wikimedia.org/wikipedia/commons/c/c9/Avocado_Hass_-_single_and_halved.jpg"
 	},
 	{	# Nofrills
 		'name':'Avacado',
-		'pricePound':'1.99'
+		'pricePound':'1.99',
+		'image': "https://upload.wikimedia.org/wikipedia/commons/c/c9/Avocado_Hass_-_single_and_halved.jpg"
+
 	},
 	{	#T&T
 		'name':'Avacado',
-		'pricePound':'1.99'
+		'pricePound':'1.99',
+		'image': "https://upload.wikimedia.org/wikipedia/commons/c/c9/Avocado_Hass_-_single_and_halved.jpg"
+
 	},
 	{	#Longos
 		'name':'Avacado',
-		'pricePound':'2.99'
+		'pricePound':'2.99',
+		'image': "https://upload.wikimedia.org/wikipedia/commons/c/c9/Avocado_Hass_-_single_and_halved.jpg"
+
 	}
 ]
 #the fruits compiled into a list, as well as a text list for indexing and name matching
@@ -143,12 +164,16 @@ def bestStoreMulti (storesandPrices):
 
 # takes a json of inputs, described at top
 def hardCode (inputs): 
-	pyInputs = json.loads(inputs) 		# convert to dictionary
-	for key in pyInputs: 
-		pyInputs[key] = clean(pyInputs[key])
+	print(type(inputs))
+	pyInputs = {}
+	pyInputs['price'] = clean(inputs.price)
+	pyInputs['distance'] = clean(inputs.price)
+	pyInputs['rating'] = clean(inputs.price)
+	pyInputs['keywords'] = [clean(word) for word in inputs.keywords]
+	
 	searchTerm = pyInputs['keywords']
 	
-	allTerm = pyInputs['keywords'].split()		# checking if there are multiple search entries
+	allTerm = pyInputs['keywords']		# checking if there are multiple search entries
 	numberOfTerms = len(allTerm)
 	if(numberOfTerms > 1):
 		print("more than one term")
@@ -173,11 +198,11 @@ def hardCode (inputs):
 		return bestStoreFruits
 
 	
-	elif (searchTerm in allFruitsTxt): 		# if only one search entry
-		fruitIndex = allFruitsTxt.index(searchTerm)
+	elif (searchTerm[0] in allFruitsTxt): 		# if only one search entry
+		fruitIndex = allFruitsTxt.index(searchTerm[0])
 		storeandPrice = concatListDict(allFruits[fruitIndex], allSuperMarkets)
 		bestIndex = bestStore(storeandPrice)
-		return storeandPrice[bestIndex]
+		return [storeandPrice[bestIndex]]
 	return error
 
 

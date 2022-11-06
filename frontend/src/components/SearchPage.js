@@ -12,9 +12,9 @@ import {  useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const aquaticCreatures = [
-  { label: 'Shark', value: 'Shark' },
-  { label: 'Dolphin', value: 'Dolphin' },
-  { label: 'Whale', value: 'Whale' },
+  { label: 'Apples', value: 'apples' },
+  { label: 'Avocado', value: 'avacado' },
+  { label: 'Oranges', value: 'oranges' },
   { label: 'Octopus', value: 'Octopus' },
   { label: 'Crab', value: 'Crab' },
   { label: 'Lobster', value: 'Lobster' },
@@ -25,6 +25,7 @@ function SearchPage({list, setList, loggedIn, setLoggedIn}) {
   const [open, setOpen] = useState(true);
   const [profile, setProfile] = useState(false);
   const [keywords, setKeywords] = useState([]);
+  const [items, setItems] = useState([]);
 
   const [distance, setDistance] = useState(10);
   const [cost, setCost] = useState(100);
@@ -85,7 +86,21 @@ function SearchPage({list, setList, loggedIn, setLoggedIn}) {
     request["distance"] = distance;
     request["rating"] = rating;
 
-    console.log(request);
+    console.log(JSON.stringify(request));
+    axios({
+        method: "POST",
+        data: JSON.stringify(request),
+        headers: {
+          'Accept': "application/json",
+          "Content-Type": "application/json",
+        },
+        url: "http://localhost:8000/send/hardCode"
+    }).then((res) => {
+        let jsonData = res.data;
+        console.log(jsonData);
+        setItems(jsonData);
+    }).catch((_) => {
+    });
   }
   return (
     <div className="search-page" id="outer-container">
@@ -130,7 +145,7 @@ function SearchPage({list, setList, loggedIn, setLoggedIn}) {
         <Filters handleSearch={handleSearch} distance={distance} setDistance={setDistance} cost={cost} setCost={setCost} rating={rating} setRating={setRating}/>
       </Push>
       <div className="content" id="page-wrap">
-        <Items open={open} list={list} setList={setList}/>
+        <Items open={open} items={items} list={list} setList={setList}/>
       </div>
     </div>
   );

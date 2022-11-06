@@ -2,18 +2,30 @@ from fastapi import FastAPI
 import uvicorn
 from pydantic import BaseModel
 from typing import Union
+from fastapi.middleware.cors import CORSMiddleware
 
 #import demo_test
 import middleman
-import hardCode
+from hardCode import hardCode
 
 app = FastAPI()
+origins = ["http://localhost:3000",
+            "http://localhost"]
 
-class Request(BaseModel):
-    keywords: Union[str,None]
-    price: float
-    distance: float
-    rating: float
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+    
+)
+
+class Request(BaseModel): 
+    keywords: list
+    price: str
+    distance: str
+    rating: str
 
 best = []
 searchTerms = []   
@@ -38,7 +50,9 @@ def sendingData():
 #front to back
 @app.post("/send/hardCode")
 def gettingData(item: Request):
+    print(item)
     best = hardCode(item)
+    return best
     
 
 

@@ -30,12 +30,10 @@ const products = [
         image: "https://upload.wikimedia.org/wikipedia/commons/5/5e/Starr-070730-7894-Daucus_carota_subsp_sativus-in_store-Foodland_Pukalani-Maui_%2824522940419%29.jpg"
     }
 ]
-export default function Items({open, list, setList}) {
-    const [items, setItems] = useState([]);
+export default function Items({open, items, list, setList}) {
+    const [products, setItems] = useState([]);
     const [width, setWidth] = useState("calc(100% - 200px");
-    useEffect(() => {
-        setItems(products);
-    }, []);
+
     useEffect(() => {
         if (open) {
             setWidth("calc(100% - 200px");
