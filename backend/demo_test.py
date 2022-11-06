@@ -84,10 +84,13 @@ def demo_test(searchItem):
 		print(market.name)
 		market.printItemPrice()
 		for index in range(len(market.itemPrice())):
-			allStoreResults.append((market.name, market.itemNames[index], market.itemPrices[index]))
+			allStoreResults.append((market.name, market.itemNames[index], float((((market.itemPrices[index])[1:]).split(' ',1))[0])))
+			print(float((((market.itemPrices[index])[1:]).split(' ',1))[0]))
 			
 	print(allStoreResults)
-	sorted(allStoreResults, key= lambda x: (x['market.name'],x['market.itemNames']),reverse=False)
+	#allStoreResults.sort(key= lambda x: (x[0],x[1]),reverse=False)
+	allStoreResults.sort(key= lambda x: (x[2]),reverse=False)
+	
 	
 	print(allStoreResults)
 	return allStoreResults
