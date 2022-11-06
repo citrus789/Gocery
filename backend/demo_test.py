@@ -87,15 +87,11 @@ def demo_test(searchItem):
 			allStoreResults.append((market.name, market.itemNames[index], float((((market.itemPrices[index])[1:]).split(' ',1))[0])))
 			print(float((((market.itemPrices[index])[1:]).split(' ',1))[0]))
 			
-	print(allStoreResults)
 	#allStoreResults.sort(key= lambda x: (x[0],x[1]),reverse=False)
 	allStoreResults.sort(key= lambda x: (x[2]),reverse=False)
-	
-	
-	print(allStoreResults)
 	return allStoreResults
 
-demo_test('orange')
+#demo_test('orange')
 
 # clickable = driver.find_element(By.id("clickable"));
 # clickable.click()
