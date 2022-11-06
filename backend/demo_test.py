@@ -23,17 +23,29 @@ time.sleep(5)
 element = driver.find_elements_by_class_name("product-name__item--name")
 itemNames = []
 for item in element:
+<<<<<<< HEAD
     itemNames.append(item.text)
+=======
+	itemNames.append(item.text)
+>>>>>>> 8e96912a8a7a1d1409dbb4c81e5e4aefa4c8ca5e
 print(itemNames)
 
 element = driver.find_elements_by_class_name("selling-price-list__item__price--now-price__value")
 itemPrices = []
 for item in element:
+<<<<<<< HEAD
     itemPrices.append(item.text)
 print(itemPrices)
 
 if(len(itemNames) == len(itemPrices)):
     print("good!")
+=======
+	itemPrices.append(item.text)
+print(itemPrices)
+
+if(len(itemNames) == len(itemPrices)):
+	print("good!")
+>>>>>>> 8e96912a8a7a1d1409dbb4c81e5e4aefa4c8ca5e
 
 
 # clickable = driver.find_element(By.id("clickable"));
