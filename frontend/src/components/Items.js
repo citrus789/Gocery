@@ -8,7 +8,8 @@ const products = [
         storeName: "Loblaws",
         distance: "2.3",
         address: "396 St Clair Ave W, Toronto, ON M5P 3N3",
-        rating: "5"
+        rating: "5",
+        image: "https://upload.wikimedia.org/wikipedia/commons/1/1f/Local_Orange_Variety_of_Kozan_-_Kozan_Yerli_Portakal_04.jpg"
     },
     {
         name: "Cauliflower",
@@ -16,18 +17,20 @@ const products = [
         storeName: "Loblaws",
         distance: "2.3",
         address: "396 St Clair Ave W, Toronto, ON M5P 3N3",
-        rating: "5"
+        rating: "5",
+        image: "https://upload.wikimedia.org/wikipedia/commons/5/5e/Cauliflower_heads_on_a_shelf.jpg"
     },
     {
-        name: "Onion",
+        name: "Carrots",
         pricePound: "0.90",
         storeName: "Loblaws",
         distance: "2.3",
         address: "396 St Clair Ave W, Toronto, ON M5P 3N3",
-        rating: "3.5"
+        rating: "3.5",
+        image: "https://upload.wikimedia.org/wikipedia/commons/5/5e/Starr-070730-7894-Daucus_carota_subsp_sativus-in_store-Foodland_Pukalani-Maui_%2824522940419%29.jpg"
     }
 ]
-export default function Items({open}) {
+export default function Items({open, list, setList}) {
     const [items, setItems] = useState([]);
     const [width, setWidth] = useState("calc(100% - 200px");
     useEffect(() => {
@@ -52,6 +55,9 @@ export default function Items({open}) {
                         distance={item.distance}
                         address={item.address}
                         rating={item.rating}
+                        image={item.image}
+                        list={list}
+                        setList={setList}
                     />
                 ))
             }

@@ -18,7 +18,7 @@
   height: 0;
   transition: width 0.2s 0.2s, height 0.2s 0.2s, opacity 0.2s;
   background-color: white;
-	z-index: 0;
+	z-index: -1;
   right: 10px;
   top: 110px;
 }

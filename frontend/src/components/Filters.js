@@ -1,15 +1,9 @@
 import '../styles/Filters.css';
-import { useState } from 'react';
 import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
 import { Rating } from 'react-simple-star-rating'
 
-export default function Filters() {
-    const [distance, setDistance] = useState(10);
-    const [cost, setCost] = useState(100);
-    const [rating, setRating] = useState(0);
-    const onPointerMove = (value, index) => console.log(value, index)
-
+export default function Filters({handleSearch, distance, setDistance, cost, setCost, rating, setRating}) {
     return (
         <div className="filters">
             <div className="filter-section">
@@ -92,7 +86,7 @@ export default function Filters() {
                     onClick={(rate) => setRating(rate)}
                 />
             </div>
-            <div className="filter-search">
+            <div className="filter-search" onClick={() => handleSearch()}>
                 Search
             </div>
         </div>

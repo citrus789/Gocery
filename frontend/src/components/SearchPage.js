@@ -21,10 +21,15 @@ const aquaticCreatures = [
 ];
 
 
-function SearchPage({list, setList}) {
+function SearchPage({list, setList, loggedIn, setLoggedIn}) {
   const [open, setOpen] = useState(true);
-  const [loggedIn, setLoggedIn] = useState(false);
   const [profile, setProfile] = useState(false);
+  const [keywords, setKeywords] = useState([]);
+
+  const [distance, setDistance] = useState(10);
+  const [cost, setCost] = useState(100);
+  const [rating, setRating] = useState(0);
+
   const navigate = useNavigate();
   useEffect(() => {
     axios({
@@ -33,7 +38,8 @@ function SearchPage({list, setList}) {
         url: "http://localhost:4000/dataBackend"
     }).then((res) => {
         let jsonData = res.data;
-        setList(jsonData);
+        console.log(jsonData);
+        setList(jsonData.data);
         setLoggedIn(true);
     }).catch((_) => {
         setLoggedIn(false);
@@ -43,6 +49,9 @@ function SearchPage({list, setList}) {
 
   function navigateLogin() {
       navigate("/login");
+  }
+  function navigateProfile() {
+    navigate("/profile");
   }
   function handleLogout() {
       axios({
@@ -65,6 +74,19 @@ function SearchPage({list, setList}) {
       setProfile(true);
     }
   }
+  function handleSearch() {
+    var words = [];
+    for (let i = 0; i < keywords.length; i++) {
+      words.push(keywords[i].value);
+    }
+    var request = {}
+    request["keywords"] = words;
+    request["price"] = cost;
+    request["distance"] = distance;
+    request["rating"] = rating;
+
+    console.log(request);
+  }
   return (
     <div className="search-page" id="outer-container">
       <div className="header">
@@ -76,9 +98,10 @@ function SearchPage({list, setList}) {
             <Select
               options={aquaticCreatures}
               isMulti={true}
+              onChange={opt => setKeywords(opt)}
             />
           </div>
-          <div className="main-search">
+          <div className="main-search" onClick={() => handleSearch()}>
             Search
           </div>
         </div>
@@ -86,7 +109,7 @@ function SearchPage({list, setList}) {
           <FontAwesomeIcon icon={faUser} size="xl"/>
         </div>
         <div className={profile ? "profile-dropdown-visible" : "profile-dropdown-hidden"}>
-          <div className="profile-page">
+          <div className="profile-page" onClick={() => navigateProfile()}>
             Profile
           </div>
           {
@@ -104,10 +127,10 @@ function SearchPage({list, setList}) {
         </div>
       </div>
       <Push noOverlay={true} outerContainerId='outer-container' pageWrapId='page-wrap' width={200} isOpen={open} onClose={() => setOpen(false)} customBurgerIcon={false}>
-        <Filters/>
+        <Filters handleSearch={handleSearch} distance={distance} setDistance={setDistance} cost={cost} setCost={setCost} rating={rating} setRating={setRating}/>
       </Push>
       <div className="content" id="page-wrap">
-        <Items open={open}/>
+        <Items open={open} list={list} setList={setList}/>
       </div>
     </div>
   );
