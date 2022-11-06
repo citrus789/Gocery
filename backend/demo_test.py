@@ -11,6 +11,7 @@ import time
 class Supermarket:
 	def __init__(self,name):
 		self.name = name
+		self.item = None
 		self.itemNames = []
 		self.itemPrices = []
 		self.website = None
@@ -48,10 +49,12 @@ Metro.getprice = "pi-sale-price"
 
 allMarkets = [Loblaws, Metro]
 	
-PATH = "C:\Program Files (x86)\chromedriver.exe"
-#实例化浏览器'
-driver= webdriver.Chrome()
+
 def demo_test(searchItem):
+	PATH = "C:\Program Files (x86)\chromedriver.exe"
+	driver= webdriver.Chrome()
+	Loblaws.item = searchItem
+	Metro.item = searchItem
 	for market in allMarkets:
 		website = market.website
 		driver.get (website)
@@ -84,11 +87,11 @@ def demo_test(searchItem):
 		print(market.name)
 		market.printItemPrice()
 		for index in range(len(market.itemPrice())):
-			allStoreResults.append((market.name, market.itemNames[index], float((((market.itemPrices[index])[1:]).split(' ',1))[0])))
+			allStoreResults.append((market.item ,market.name, market.itemNames[index], float((((market.itemPrices[index])[1:]).split(' ',1))[0])))
 			print(float((((market.itemPrices[index])[1:]).split(' ',1))[0]))
 			
 	#allStoreResults.sort(key= lambda x: (x[0],x[1]),reverse=False)
-	allStoreResults.sort(key= lambda x: (x[2]),reverse=False)
+	allStoreResults.sort(key= lambda x: (x[3]),reverse=False)
 	return allStoreResults
 
 #demo_test('orange')

@@ -28,6 +28,7 @@ class Request(BaseModel):
     rating: str
 
 best = []
+results = []
 searchTerms = []   
 
 @app.get("/")
@@ -39,14 +40,14 @@ async def root():
 def gettingData(item: Request):
     searchTerms = middleman(item)
     for term in searchTerms: 
-        demo_test(term)
+        results = demo_test(term)
     
 
 
 #back to front
 @app.get("/give")
 def sendingData():
-    #run the demo part and get a best option
+    best = middleman.fixForReturn(results)
     return best
 
 #front to back
