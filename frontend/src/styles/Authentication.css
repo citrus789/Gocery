@@ -4,9 +4,9 @@
     align-self: flex-start;
     font-size: 1rem;
     line-height: 1.5;
-    color: #495057;
+    color: black;
     background-color: #fff;
-    border: 1px solid #ced4da;
+    border: 1px solid gray;
     border-radius: 0.25rem;
     transition: 0.15s;
     box-sizing: border-box;
@@ -18,8 +18,8 @@
 }
 
 .auth-input:focus {
-    background-color: #def0f8;
-    border: 1px solid #117289;
+    background-color: var(--lightblue);
+    border: 1px solid black;
 }
 
 .login-wrapper {
@@ -27,7 +27,7 @@
     background-color: lightgray;
 }
 .login-container {
-    background-color: rgb(255, 255, 255, 0.6);
+    background-color: lightgray;
     width: 100%;
     height: calc(100vh - 100px);
     display: flex;
@@ -51,9 +51,9 @@
     align-items: center;
     justify-content: center;
     border-radius: 5px;
-    background-color: red;
+    background-color: var(--yellow);
     color: white;
-    opacity: 0.8;
+    opacity: 1;
     transition: 0.15s;
     margin-top: 20px;
     margin-bottom: 10px;
@@ -61,7 +61,7 @@
 }
 
 .login-button:hover {
-    opacity: 1;
+    opacity: 0.85;
     cursor: pointer;
 }
 

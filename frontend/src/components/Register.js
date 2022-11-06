@@ -57,11 +57,11 @@ export default function Register() {
     return (
         <div className="login-wrapper">
             <div className="header">
-                <div className="logo" onClick={() => navigateSearch()}>
+                <div className="logo" onClick={() => navigateSearch()}  style={{color: "white"}}>
                     <FontAwesomeIcon icon={faHouse} size="xl"/>      
                 </div>
                 <div className="register-title">
-                    <h2>
+                    <h2 style={{color: "white"}}>
                         Register
                     </h2>
                 </div>

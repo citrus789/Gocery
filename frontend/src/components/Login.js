@@ -45,11 +45,11 @@ export default function Login() {
     return (
         <div className="login-wrapper">
             <div className="header">
-                <div className="logo" onClick={() => navigateSearch()}>
+                <div className="logo" onClick={() => navigateSearch()}  style={{color: "white"}}>
                     <FontAwesomeIcon icon={faHouse} size="xl"/>      
                 </div>
                 <div className="login-title">
-                    <h2>
+                    <h2 style={{color: "white"}}>
                         Login
                     </h2>
                 </div>

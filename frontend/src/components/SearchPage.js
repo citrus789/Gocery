@@ -90,7 +90,7 @@ function SearchPage({list, setList, loggedIn, setLoggedIn}) {
   return (
     <div className="search-page" id="outer-container">
       <div className="header">
-        <div className="logo">
+        <div className="logo" style={{color: "white"}}>
           <Hamburger toggled={open} toggle={setOpen}/>        
         </div>
         <div className="search-wrapper">
@@ -105,7 +105,7 @@ function SearchPage({list, setList, loggedIn, setLoggedIn}) {
             Search
           </div>
         </div>
-        <div className="profile" onClick={() => handleProfile()}>
+        <div className="profile" onClick={() => handleProfile()}  style={{color: "white"}}>
           <FontAwesomeIcon icon={faUser} size="xl"/>
         </div>
         <div className={profile ? "profile-dropdown-visible" : "profile-dropdown-hidden"}>

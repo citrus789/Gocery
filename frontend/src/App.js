@@ -7,6 +7,7 @@ import {
     Routes,
     Route
 } from 'react-router-dom';
+import './App.css';
 export default function App() {
     const [list, setList] = useState([]);  
     const [loggedIn, setLoggedIn] = useState(false);

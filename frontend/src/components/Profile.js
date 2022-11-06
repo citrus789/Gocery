@@ -66,15 +66,15 @@ export default function Profile({list, setList, loggedIn, setLoggedIn}) {
     return (
         <div className="user">
             <div className="header">
-                <div className="logo" onClick={() => navigateSearch()}>
+                <div className="logo" onClick={() => navigateSearch()} style={{color: "white"}}>
                     <FontAwesomeIcon icon={faHouse} size="xl"/>      
                 </div>
                 <div className="profile-title">
-                    <h2>
+                    <h2 style={{color: "white"}}>
                         Profile
                     </h2>
                 </div>
-                <div className="profile" onClick={() => handleProfile()}>
+                <div className="profile" onClick={() => handleProfile()} style={{color: "white"}}>
                     <FontAwesomeIcon icon={faUser} size="xl"/>
                 </div>
                 <div className={profile ? "profile-dropdown-visible" : "profile-dropdown-hidden"}>
