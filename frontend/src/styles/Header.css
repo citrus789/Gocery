@@ -21,14 +21,15 @@
     min-height: 50px;
     border-radius: 25px;
     margin: 25px 15px;
-    background-color: lightgray;
+    
     display: flex;
     align-items: center;
     justify-content: center;
-    
+    transition: 0.15s;
 }
 .profile:hover, .logo:hover {
     cursor: pointer;
+    background-color: lightgray;
 }
 .main-search {
     width: 100px;
