@@ -3,7 +3,7 @@ import uvicorn
 from pydantic import BaseModel
 from typing import Union
 
-#import demo_test
+import demo_test
 import middleman
 import hardCode
 
@@ -26,6 +26,8 @@ async def root():
 @app.post("/send")
 def gettingData(item: Request):
     searchTerms = middleman(item)
+    for term in searchTerms: 
+        demo_test(term)
     
 
 
