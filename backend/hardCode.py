@@ -146,9 +146,9 @@ def hardCode (inputs):
 	pyInputs = json.loads(inputs) 		# convert to dictionary
 	for key in pyInputs: 
 		pyInputs[key] = clean(pyInputs[key])
-	searchTerm = pyInputs['terms']
+	searchTerm = pyInputs['keywords']
 	
-	allTerm = pyInputs['terms'].split()		# checking if there are multiple search entries
+	allTerm = pyInputs['keywords'].split()		# checking if there are multiple search entries
 	numberOfTerms = len(allTerm)
 	if(numberOfTerms > 1):
 		print("more than one term")
@@ -182,10 +182,11 @@ def hardCode (inputs):
 
 
 inputting = {
-	'price':'12', 
-	'rating':'3', 
+	'keywords':'avacado apple',
+	'price':'12',
 	'distance': '10', 
-	'terms':'avacado apple'
+	'rating':'3'
+	
 }
 def tester():
 	result = hardCode(json.dumps(inputting))
