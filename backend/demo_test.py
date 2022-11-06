@@ -28,13 +28,20 @@ Loblaws.searchbutton = '//*[@id="site-layout"]/div[1]/div[3]/div/header/div[1]/d
 Loblaws.getname = "product-name__item--name"
 Loblaws.getprice = "selling-price-list__item__price--now-price__value"
 Costco = Supermarket()
-Costco.website = 'https://www.loblaws.ca/'
-Costco.searchbar = '//*[@id="autocomplete-listbox-desktop-site-header-"]'
-Costco.searchbutton = '//*[@id="site-layout"]/div[1]/div[3]/div/header/div[1]/div[2]/form/button'
-Costco.getname = "product-name__item--name"
-Costco.getprice = "selling-price-list__item__price--now-price__value"
+Costco.website = 'https://www.costco.ca/'
+Costco.searchbar = '//*[@id="search-field"]]'
+Costco.searchbutton = '//*[@id="formcatsearch"]/div[2]/button'
+Costco.getname = "your-price row no-gutter"
+Costco.getprice = "your-price row no-gutter" ##this need to be change
+Metro = Supermarket()
+Metro.website = 'https://www.metro.ca/en'
+Metro.searchbar = '//*[@id="header--search--input"]'
+Metro.searchbutton = '//*[@id="header--search--button"]/svg/use'
+Metro.getname = "pt-title"
+Metro.getprice = "pi-sale-price"
 
-allMarkets = [Loblaws, Costco]
+
+allMarkets = [Loblaws, Costco, Metro]
 
 searchItem = 'orange'
 	
