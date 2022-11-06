@@ -16,7 +16,7 @@ def middleman (inputs):
 
 def fixForReturn (inputList):
 	returnList = []
-	for itemidx in inputs:
+	for itemidx in inputList:
 		itemDict = {'name':(inputList[itemidx])[2], 'pricePound':(inputList[itemidx])[3], 'image':'', "storeName":(inputList[itemidx])[1],
 		'distance':'0', 'address':'abcstreet', 'rating':'4.5'}
 		returnList.append(itemDict)
