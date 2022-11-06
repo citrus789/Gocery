@@ -50,7 +50,6 @@ def sendingData():
 #front to back
 @app.post("/send/hardCode")
 def gettingData(item: Request):
-    print(item)
     best = hardCode(item)
     return best
     

@@ -167,8 +167,8 @@ def hardCode (inputs):
 	print(type(inputs))
 	pyInputs = {}
 	pyInputs['price'] = clean(inputs.price)
-	pyInputs['distance'] = clean(inputs.price)
-	pyInputs['rating'] = clean(inputs.price)
+	pyInputs['distance'] = clean(inputs.distance)
+	pyInputs['rating'] = clean(inputs.rating)
 	pyInputs['keywords'] = [clean(word) for word in inputs.keywords]
 	
 	searchTerm = pyInputs['keywords']
@@ -198,11 +198,12 @@ def hardCode (inputs):
 		return bestStoreFruits
 
 	
-	elif (searchTerm[0] in allFruitsTxt): 		# if only one search entry
+	elif (numberOfTerms == 1 and searchTerm[0] in allFruitsTxt): 		# if only one search entry
 		fruitIndex = allFruitsTxt.index(searchTerm[0])
 		storeandPrice = concatListDict(allFruits[fruitIndex], allSuperMarkets)
 		bestIndex = bestStore(storeandPrice)
 		return [storeandPrice[bestIndex]]
+
 	return error
 
 
