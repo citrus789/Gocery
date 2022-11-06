@@ -1,7 +1,6 @@
 .items {
     display: flex;
     flex-direction: column;
-    width: calc(100vw - 200px);
-    background-color: blue;
-    height: calc(100vh - 100px);
+    height: 100%;
+    background-color: lightgray;
 }

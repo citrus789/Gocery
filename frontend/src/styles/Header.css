@@ -1,5 +1,55 @@
 .header {
     height: 100px;
-    width: 100vw;
-    background-color: red;
+    width: 100%;
+    background-color: var(--red);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.search {
+    width: 100%;
+    z-index: 1101;
+    margin-right: 10px;
+}
+.search:hover {
+    cursor: auto;
+}
+.profile, .logo {
+    min-width: 50px;
+    min-height: 50px;
+    border-radius: 25px;
+    margin: 25px 15px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.15s;
+}
+.profile:hover, .logo:hover {
+    cursor: pointer;
+    background-color: var(--yellow);
+}
+.main-search {
+    width: 100px;
+    height: 38px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    background-color: var(--yellow);
+    color: white;
+    opacity: 1;
+    transition: 0.15s;
+}
+.main-search:hover {
+    opacity: 0.85;
+    cursor: pointer;
+}
+.search-wrapper {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
 }

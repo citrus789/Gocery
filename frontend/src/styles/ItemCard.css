@@ -1,0 +1,115 @@
+.card {
+    width: calc(100% - 20px);
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    height: 130px;
+    display: flex;
+    flex-direction: row;
+    border-radius: 5px;
+    background-color: white;
+    justify-content: space-between;
+    position: relative;
+}
+.left {
+    display: flex;
+    flex-direction: row;
+}
+.image {
+    height: 120px;
+    width: 120px;
+    border-radius: 5px;
+    margin: 5px;
+}
+img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+}
+.description {
+    margin-left: 5px;
+    display: flex;
+    flex-direction: column;
+}
+.title, .store {
+    display: flex;
+    flex-direction: row;
+}
+.title {
+    font-weight: bold;
+    margin-top: 5px;
+}
+.name, .store-name {
+    margin-right: 3px;
+}
+.add-cart, .delete-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    min-width: 50px;
+    max-height: 50px;
+    border-radius: 25px;
+    margin: 25px 15px;
+    transition: 0.15s;
+    z-index: 2;
+}
+.add-cart:hover, .delete-item:hover {
+    background-color: var(--yellow);
+    cursor: pointer;
+    color: white;
+}
+
+.added {
+    color: white;
+    padding: 5px 10px;
+    font-size: 0.8rem;
+    text-align: center;
+    border-radius: 0.25rem;
+    display: flex;
+    align-self: center;
+    position: absolute;
+    top: 35px;
+    right: 70px;
+    background-color: var(--red);
+}
+.success {
+    color: white;
+    padding: 5px 10px;
+    font-size: 0.8rem;
+    text-align: center;
+    border-radius: 0.25rem;
+    display: flex;
+    align-self: center;
+    position: absolute;
+    top: 35px;
+    right: 70px;
+    background-color: var(--blue);
+}
+
+.error-hidden {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    transition: width 0.2s 0.2s, height 0.2s 0.2s, opacity 0.2s;
+}
+
+.error-visible {
+    opacity: 1;
+    width: 70px;
+    height: 20px;
+    transition: width 0.2s, height 0.2s, opacity 0.2s 0.2s;
+}
+
+.error-visible2 {
+    opacity: 1;
+    width: 60px;
+    height: 20px;
+    transition: width 0.2s, height 0.2s, opacity 0.2s 0.2s;
+}
+.deleted {
+    height: 0px;
+    transition: height 0.5s;
+    overflow: hidden;
+}

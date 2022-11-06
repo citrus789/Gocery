@@ -39,7 +39,7 @@ class Spider(Spider):
         hots = sales.xpath('//h3/a/em/text()').extract()
 
         for index in range(len(sales)):
-            print "创建数据模型"
+            # print "创建数据模型"
             item = HuihuiItem()
 
             item["title"] = titles[index]
@@ -51,4 +51,4 @@ class Spider(Spider):
 
             yield item
 
-        print '数据转模型完毕'
+        # print '数据转模型完毕'

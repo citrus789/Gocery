@@ -1,12 +1,7 @@
-.App {
-  margin: 0px;
-  display: flex;
-  flex-direction: column;
-  width: 100vw;
-  height: 100vh;
+:root {
+	--red: #D92027;
+	--orange: #FF9234;
+    --yellow: #FFC000;
+    --blue: #35D0BA;
+    --lightblue: #98fff0;
 }
-.content {
-  display: flex;
-  flex-direction: row;
-}
-

@@ -1,0 +1,26 @@
+.profile-content {
+    height: calc(100vh - 100px);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: lightgray;
+}
+.email, .address-personal {
+    width: 280px;
+    margin-top: 10px;
+    margin-left: 15px;
+    border-radius: 5px;
+}
+.grocery-list {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 90%;
+    height: 80%;
+    max-width: 600px;
+    background-color: white;
+    padding: 2rem;
+    border-radius: 5px;
+    margin-top: 2rem;
+    overflow-y: scroll;
+}
